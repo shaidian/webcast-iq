@@ -1,0 +1,325 @@
+@、不引入第三个变量，调换两个数的值：
+   x=10和y=8
+   法一：
+   x=x-y；//x=2,y=8
+   y=y+x；//y=10,x=2
+   x=y-x；//x=8,y=10
+   法二：
+   x=x+y=10+8; //x=18,y=8
+   y=x-y=18-8; //x=18,y=10
+   x=x-y=18-10; //x=8,y=10
+@、计算平方根：
+   Math.sqrt(x);
+@、判断一个数是完全平方数：
+    这个数的开平方是整数
+    (Math.sqrt(n)+"").indexOf(".")==-1 为真（找不到小数点）
+@、产生随机数：
+    var n=Math.random()*(max-min+1)+min;
+    产生随机整数：
+    var n=parseInt(Math.random()*(max-min+1)+min);
+    eg:
+    var a=Math.random()*(1-0+1)+0;//0-1.9
+    var a=Math.floor(Math.random()*(1-0+1)+0);//0-1
+    var a=Math.random()*1;//0-0.9
+    var a=Math.floor(Math.random()*1);//0
+    当取从0<=x<=n的随机整数时：
+    var a=Math.floor(Math.random()*(n+1));
+@、循环的次数决定程序的效率
+   应该尽可能减少循环的次数
+@、给一个多位数，分解出它各个位上的数字：
+   eg:a为一个五位数
+   a=parseInt(x/10000);/* 分解出万位 */ 
+   b=parseInt(x%10000/1000);/* 分解出千位 */ 
+   c=parseInt(x%1000/100);/* 分解出百位 */ 
+   d=parseInt(x%100/10);/* 分解出十位 */ 
+   e=parseInt(x%10);/* 分解出个位 */ 
+@、去重复/统计个数：用hash数组
+    var arr=[2,3,4,3,6,4,5,6];
+	var hash=[];
+	for(var i=0;i<arr.length;i++){ //去掉重复，并且统计个数
+		if(hash[arr[i]]==undefined){
+			hash[arr[i]]=1;
+		}else {
+			hash[arr[i]]++;
+		}
+	}
+	console.log(hash);
+	arr=[];
+	for(var key in hash){  //得到去掉重复后的新数组
+		arr[arr.length]=(key-=0);
+	}
+	console.log(arr);
+@、数组的效率要高于字符串
+@、在数组中删除一个元素：arr.splice(i,1);
+@、当函数没有 局部变量时，函数中引用的值名称和全局变量名称一样
+    此时操作的 将 直接是 全局变量
+    函数操作完毕后 操作的结果将保留在全局变量中
+@、number.toFixed(a); --返回一个以定点表示法表示的数字的【字符串】形式
+	toFixed默认值是0-->就是取number的整数部分
+	a的范围为0-20，当a是0-20的小数时 取a的整数部分
+	当a不是数字时（字符串、null...）等 a取默认值0
+	当a不在0-20的范围内时 会报错 不在范围内
+@、三种弹出框：
+   prompt	confirm("")	alert
+    弹出输入框	提示框		警告框
+@、表单中的selected、checked、disabled
+    不是bool值，但都可以放在if中使用
+    它们的存在与否就是真和假
+@、使字符串变数字的方法：
+	str-0
+@、parseInt(str)：取当前字符中整数
+    （1）、第一个是数字 将一直找到第一个不是数字的字符 取前面的数字
+    （2）、第一个不是数字 返回空
+@、使用eval计算时，通常要加上try catch
+	try{
+		sc.innerHTML=eval(sc.innerHTML);
+	}catch(err){
+		sc.innerHTML=err.message;
+	}
+	（不要在循环内部使用try-catch-finally）
+@、获取对象的style属性，解决兼容性：
+	if(getComputedStyle){
+		style=getComputedStyle(this.div);
+	}else{
+		style=this.div.currentStyle; //对于IE8
+	}
+@、两个对象同用一个函数时，可连续等号：
+	$("li.app_jd").onmouseout=
+		$("li.service").onmouseout=function(){
+		this.$("[id$='_items']").style.display="none";
+	}
+@、在算式计算中，如果有多个 / 将会形成正则表达式
+	但不会影响算式的正常计算
+@、将文本内容插入到元素内：
+	(1)、作为文本插入到元素
+		textContent或innerText属性可以获取或设置指定元素的文本内容
+	(2)、作为节点方式
+		创建文本节点 - createTextNode(text)
+		将文本节点作为子节点
+@、jq选择器：
+    【:last与前面是同一个，:last-child是前一个的子元素】
+	#data tr>td:last 最后一行的最后一个td
+	#data tr :last-child 每行的最后一个td
+@、jq事件：
+	单击-click
+	双击-dblclick
+@、value、innerHTML、textContent属性的区别：
+	(1)、value
+		a、用于单标签:获取有value属性的单标签的 value值
+		b、用于双标签：获取元素在网页上此时呈现的内容
+			eg: select.value -->表示此时select中被选中项的内容
+	(2)、innerHTML:获取元素内的所有内容(包括文本和子标签),以字符串的形式
+	(3)、textContent:获取标签内的文本
+@、向数组插入数据
+   * array.push(data)
+   * array[array.length] = data;
+@、切换变量0和1的方法：
+	(1)、分支结构 if..else..
+		if(a==0){
+			a=1;
+		}else{
+			a=0;
+		}
+	(2)、三目
+	(3)、公式计算
+		a=(++a)%2;
+@、select:
+	var obj = document.getElementById(”testSelect”); //定位id
+	var index = obj.selectedIndex; // 选中索引
+
+	var text = obj.options[index].text; // 选中文本
+
+	var value = obj.options[index].value; // 选中值
+	var value = obj.value;// 选中值
+@、DOM对象和jq对象的转化：
+
+（1）、DOM转JQ
+	$(html)-->把DOM对象转换成JQ对象
+
+（2）、JQ转DOM：
+	$("#v")[0];
+  $("#v").get(0); 
+@、对一个存数字的 数组 取其中最大值：
+	datas-该数组
+	var maxValue=Math.max.apply(Math,datas);
+@、instanceof-->判断类型
+	if(arr[i] instanceof Array)  ：判断arr[i]是不是数组  
+@、jq中hover函数：
+	$('').hover(function(){},function(){});
+	表示鼠标进入和离开那一时间发生的事件
+	其中两个函数相当于mouseenter() mouseleave()
+@、jq中：把一个对象转换成key1=val1&key2=val2&...
+	var str=jQuery.param(object); 
+@、JS中函数的隐含参数
+    (1)、arguments：代表正在执行的函数和调用它的函数的参数,只有函数开始时才可用
+    (2)、caller：返回一个对函数的引用,该函数调用了当前函数
+    (3)、callee：返回正被执行的function对象,也就是所指定的function对象的正文
+	arguments.length-实参长度
+	arguments.callee.length-形参长度
+	fn.toString()-fn.arguments.callee-fn.arguments.callee.toString()：返回当前函数的内容
+@、toString()方法
+    x.toString()--->把x变成字符串(不能转化null,underfined...)
+    Object.toString()--->输出对象的类型和名称
+    toString(x)--->输出x的类型
+    String(x)--->把x变成字符串,相当于隐式转换(所有的都可以转包括null,underfined)
+    toString与String关系：String调用toString
+    【toString与x.valueOf区别】
+    toString包含类型转换
+    valueOf不带类型转换
+@、【将 [类数组对象/伪数组] 变为 [数组类型对象]】
+	类数组对象/伪数组：能通过Array.prototype.slice转换为真正的数组的带有length属性的对象
+			   arguments对象，调用getElementsByTagName、
+			   document.childNodes之类返回NodeList对象都属于伪数组
+	lis=Array.prototype.slice.call(lis);  //在IE8及之前版本不行
+	    /[].slice.call(lis)
+	//数组			//类数组对象
+  【所有浏览器都可运行】：
+  function convertToArray(nodes){
+	var array=null;
+	try {
+		array=Array.prototype.slice.call(nodes,0);//针对非IE浏览器
+	}catch(ex){
+		array=new Array();
+		for(var i=0,len=nodes.length;i<len;i++){
+			array.push(nodes[i]);
+		}
+	}
+	return array;
+  }
+  [对 <li data-i=5">Jerry</li> 依据data-i属性值排序]
+	var lis=ul.querySelectorAll("li");   //getElementsByTagName方法也是一样
+	lis=Array.prototype.slice.call(lis);
+	lis.sort(function(a,b){
+		return a.dataset.i-b.dataset.i;
+	});
+	for(var i=0;i<len;i++){
+		lis[i]='<li data-i='+lis[i].dataset.i+'">'
+					+lis[i].innerHTML
+					+'</li>';
+	}
+	ul.innerHTML=lis.join("");
+  [对纯数字的 [类数组对象]可用sort直接排序]
+  function fun(){
+	//arguments=Array.prototype.slice.call(arguments);  //保险起见最好加上
+	console.log(arguments);
+  }
+  fun(23,56,1,23,5);
+@、DOM中 Selector API vs getElementxxx 比较
+	效率：getElementxxx效率最高！
+       易用：Selector API更容易使用，便于反复查找！
+         如果只找一次就可获得元素时，用getElementxxx
+         如果需要反复查找才能获得元素时，用 Selector API
+@、禁止右键点击
+	$(document).ready(function(){
+		$(document).bind("contextmenu",function(e){
+		return false;
+	});
+	});
+@、检测浏览器
+    注: 在版本jQuery 1.4中，$.support 替换掉了$.browser 变量
+$(document).ready(function() {
+// Target Firefox 2 and above
+if ($.browser.mozilla && $.browser.version >= "1.8" ){// do something}
+
+// Target Safari
+if( $.browser.safari ){// do something}
+
+// Target Chrome
+if( $.browser.chrome){// do something}
+
+// Target Camino
+if( $.browser.camino){// do something}
+
+// Target Opera
+if( $.browser.opera){// do something}
+
+// Target IE6 and below
+if ($.browser.msie && $.browser.version <= 6 ){// do something}
+
+// Target anything above IE6
+if ($.browser.msie && $.browser.version > 6){// do something}
+});
+@、统计元素个数
+$(document).ready(function() {
+   $("p").size();
+});
+@、<script language="javascript">
+var h = "";
+h += " 网页可见区域宽："+ document.body.clientWidth+"\n";
+h += " 网页可见区域高："+ document.body.clientHeight+"\n";
+h += " 网页可见区域宽："+ document.body.offsetWidth +" (包括边线和滚动条的宽)"+"\n";
+h += " 网页可见区域高："+ document.body.offsetHeight +" (包括边线的宽)"+"\n";
+h += " 网页正文全文宽："+ document.body.scrollWidth+"\n";
+h += " 网页正文全文高："+ document.body.scrollHeight+"\n";
+h += " 网页被卷去的上："+ document.body.scrollTop+"\n";
+h += " 网页被卷去的左："+ document.body.scrollLeft+"\n";
+h += " 网页正文部分上："+ window.screenTop+"\n";
+h += " 网页正文部分左："+ window.screenLeft+"\n";
+h += " 屏幕分辨率的宽："+ window.screen.width+"\n";
+h += " 屏幕分辨率的高："+ window.screen.height+"\n";
+h += " 屏幕可用工作区宽度："+ window.screen.availWidth+"\n";
+h += " 屏幕可用工作区高度："+ window.screen.availHeight+"\n";
+h += " 你的屏幕设置是 "+ window.screen.colorDepth +" 位彩色"+"\n";
+h += " 你的屏幕设置 "+ window.screen.deviceXDPI +" 像素/英寸"+"\n";
+alert(h);
+</script>
+@、应用外部文件，设置编码格式
+<script type="text/javascript" src(引用外部js文件)="xxx.js" charset(设置编码格式)="utf-8"></script>
+@、从数组中随机获取成员
+	
+var items = [12, 548 , 'a' , 2 , 5478 , 'foo' , 8852, , 'Doe' , 2145 , 119];
+	
+var  randomItem = items[Math.floor(Math.random() * items.length)];
+@、生成随机的字母数字字符串
+	
+function generateRandomAlphaNum(len) {
+	    var rdmString = "";
+    
+	    for( ; rdmString.length < len; rdmString  += Math.random().toString(36).substr(2));
+    
+	    return  rdmString.substr(0, len);
+	}
+
+@、打乱数字数组的顺序
+	
+var numbers = [5, 458 , 120 , -215 , 228 , 400 , 122205, -85411];
+	
+numbers = numbers.sort(function(){ return Math.random() - 0.5});
+@、验证是否是数字
+	
+function isNumber(n){
+    
+		return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+@、删除数组中的元素
+对数组元素直接使用delete，其实并没有删除，
+	只是将元素置为了undefined[删除对象的属性时可以使用delete]
+	
+应使用splice：
+var items = [12, 548 ,'a' , 2 , 5478 , 'foo' , 8852, , 'Doe' ,2154 , 119 ]; 
+	
+items.length; // return 11 
+items.splice(3,1) ; 
+	
+items.length; // return 10 
+/* items 结果为 [12, 548, "a", 5478, "foo", 8852, undefined × 1, "Doe", 2154, 119]
+@、使用length属性截断数组
+	
+var myArray = [12 , 222 , 1000 , 124 , 98 , 10 ];
+	
+myArray.length = 0; //清空数组
+	
+myArray.length = 4; // myArray will be equal to [12 , 222 , 1000 , 124].
+如果把length属性变大，数组的长度值变会增加，会使用undefined来作为新的元素填充。length是一个可写的属性
+@、传给setInterval()和setTimeout()时使用函数而不是字符串
+如果传给setTimeout()和setInterval()一个字符串，他们将会用类似于eval方式进行转换，这肯定会要慢些
+setTimeout(doSomethingAfterFiveSeconds, 5000);//不带引号
+@、JQuery一个对象可以同时绑定多个事件：
+    *多个事件同一个函数：
+    $("div").on("click mouseover", function(){});
+    * 多个事件不同函数
+    $("div").on({
+        click: function(){},
+        mouseover: function(){}
+    });
