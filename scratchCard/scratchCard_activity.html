@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT" />
+    <meta http-equiv="Cache-Control" content="no-cache,must-revalidate" />
+    <meta name="format-detection" content="telephone=no"/>
+	<title>亿中有礼活动 好礼任性送</title>
+	<link rel="stylesheet" type="text/css" href="http://image1.chinatelecom-ec.com/client/wap/millionUserActivity/css/common.css">
+
+</head>
+<body>
+	<div style="margin:100px">
+		<canvas id="myCanvas" width="500" height="500" style="border:1px solid #000000;">
+			您的浏览器不支持 HTML5 canvas 标签。(浏览器不支持时候显示)
+		</canvas>
+
+	</div>
+
+<script src="./js/jquery.js"></script>
+	<script type="text/javascript">
+        var c=document.getElementById("myCanvas");
+        var ctx=c.getContext("2d");//getContext("2d") 对象是内建的 HTML5 对象
+        ctx.beginPath();//开始新的路径，旧路径就会被cavas扔掉
+		//1、画一条线
+//        ctx.moveTo(0,0); //移动到位置 0,0
+//        ctx.lineTo(300,150);// 创建到达位置 300,150 的一条线
+//        ctx.strokeStyle="green";//设置描边的颜色
+//        ctx.lineWidth=5;//设置描边的宽度
+//        ctx.stroke();//描边
+
+
+		//2、绘制一个150.75的矩形
+//        ctx.rect(20,20,100,100);//绘制一个矩形参数分别是原点跟宽度
+//        ctx.fillStyle="#FF0000";//设置填充的颜色（注意一下先设置颜色在填充才起作用，描边同理）
+//		  ctx.fill();//填充
+//        ctx.closePath()//会完全闭合，执行会找到最后一个moveTo进行闭合
+
+//		3、描边出一个矩形
+//			ctx.strokeStyle="green";
+//        ctx.strokeRect(0,0,150,75)//描边出一个矩形
+//      4、填充出一个矩形
+//        ctx.fillStyle="#FF0000";
+//		ctx.fillRect(0,0,150,75);//填充出一个矩形
+
+//		5、清除一个矩形
+//		ctx.clearRect(30,30,50,50);
+
+//		6、绘制一个圆
+//		ctx.arc(150,150,100,0,Math.PI*2);
+//		ctx.arc(150,150,100,Math.PI*0.3,Math.PI*1.2,false);//圆的中心的 x -----y 坐标-----圆的半径----起始角，以弧度计----结束角，以弧度计-----可选。规定应该逆时针还是顺时针绘图。False = 顺时针，true = 逆时针。
+//		弧度=角度/180*Math.PI
+		//		ctx.fill();
+//        ctx.stroke();
+
+//		7、文字
+//        ctx.font="20px Georgia";//设置字体与css一样
+////        ctx.strokeText("Hello World!",10,50,50);//描边出来文字:文字----原点位置---50是可选的最大宽度
+//        ctx.baseline='middle';//对齐top/middle/bottom
+////        ctx.textAlign='right';//对齐
+//        ctx.strokeText("Hello World!",10,50);//描边出来文字:文字----原点位置---50是可选的最大宽度
+//        //ctx.textAlign='left';//对齐
+//        ctx.fillText("Hello World!",200,50);
+
+//
+//        ctx.font="30px Verdana";
+//        // 创建渐变xy开始位置，xy结束位置
+//        var gradient=ctx.createLinearGradient(0,0,c.width,0);
+//        gradient.addColorStop("0","green");//介于 0.0 与 1.0 之间的值，表示渐变中开始与结束之间的位置----颜色
+//        gradient.addColorStop("0.3","yellow");
+//        gradient.addColorStop("0.6","red");
+//        // 用渐变填色
+//        ctx.strokeStyle=gradient;
+//        ctx.strokeText("w3school.com.cn",10,90);
+
+
+//		8、图片
+//		var img=new Image();
+//		img.src='./images/guajiang_index.png';
+//		img.addEventListener('load',function () {
+//			ctx.drawImage(img,5,5);//三个参数时候为图片、xy原点
+//			ctx.drawImage(img,5,5,100,100);//五个参数时候为图片、后四个为传送到的目标矩形
+//			ctx.drawImage(img,0,0,10,10,5,5,100,100);//五个参数时候为图片、中间四个是截取图片的位置，后四个为传送到的目标矩形
+//        })
+
+		//html5程序设计：新功能，cavas，音频视频，地理位置，拖拽，储存。。。等等
+	</script>
+</body>
+</html>
