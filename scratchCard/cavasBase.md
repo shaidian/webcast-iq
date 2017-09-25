@@ -11,7 +11,7 @@
     <meta name="format-detection" content="telephone=no"/>
 	<title>亿中有礼活动 好礼任性送</title>
 	<link rel="stylesheet" type="text/css" href="http://image1.chinatelecom-ec.com/client/wap/millionUserActivity/css/common.css">
-	
+
 	<style type="text/css">
 		div,body,button,dd,dl,dt,form,h1,h2,h3,h4,h5,h6,hr,input,li,ol,p,td,
 		textarea,th,ul,em,i { margin: 0; padding: 0 }
@@ -182,7 +182,7 @@
 		<div class="scratchCardAct">
 			<!-- 用户手机号 -->
 			<div class="scratchCardAct_userPhone">
-				<p class="userPhoneNum"></p>
+
 		           <span>祝福已收到，你我已是真爱~</span>
 			</div>
 			<!-- 刮刮卡 -->
