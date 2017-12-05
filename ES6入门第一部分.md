@@ -1,3 +1,4 @@
+http://es6.ruanyifeng.com/
 # let 和 const 命令
 ## let 命令
 ### 基本用法
